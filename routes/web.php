@@ -12,5 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend');
+});
+
+Route::get('/login', function() {
+    return view('login');
+})->name('login');
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::post('/authenticate', 'Auth\LoginController@login')->name('authenticate');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/backend', function () {
+        return view('backend');
+    });
 });
