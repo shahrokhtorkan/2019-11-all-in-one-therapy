@@ -8,7 +8,7 @@
     <table class="table table-bordered">
         <tr>
             <th>SVNr</th>
-            <th>Name</th>
+            <th class="text-left">Name</th>
             <th>Adresse</th>
             <th>PLZ</th>
             <th>Ort</th>
@@ -17,7 +17,7 @@
         @foreach($patients as $patient)
             <tr>
                 <td>{{ $patient->svnr }}</td>
-                <td>{{ $patient->lastname }}, {{ $patient->firstname }}</td>
+                <td class="text-left">{{ $patient->lastname }}, {{ $patient->firstname }}</td>
                 <td>{{ $patient->address }}</td>
                 <td>{{ $patient->plz }}</td>
                 <td>{{ $patient->city }}</td>
