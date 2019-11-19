@@ -10,6 +10,6 @@
         @endif
         <p><input type="text" name="name" placeholder="Benutzer"></p>
         <p><input type="password" name="password" placeholder="Passwort"></p>
-        <p><button type="submit">Login</button></p>
+        <p><button type="submit" class="btn btn-primary">Login</button></p>
     </form>
 @endsection

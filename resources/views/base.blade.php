@@ -17,6 +17,10 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
+                    @hasSection('top-links')
+                        @yield('top-links')
+                        |
+                    @endif
                     @auth
                         <a href="{{ route('logout') }}">Logout</a>
                     @else
