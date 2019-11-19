@@ -1,12 +1,12 @@
 @extends('base')
 
-@section('title', 'Willkommen in Backend')
+@section('title', 'Willkommen im Backend')
 
 @section('top-links')
     @auth
-        <a href="/">Patient</a>
-        <a href="/">Kalender</a>
-        <a href="/">Doku</a>
+        <a href="/patients">Patient</a>
+        <a href="/backend">Kalender</a>
+        <a href="/backend">Doku</a>
         <a href="/">Frontend</a>
     @endauth
 @endsection
