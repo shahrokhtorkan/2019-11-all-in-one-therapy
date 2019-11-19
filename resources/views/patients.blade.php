@@ -25,4 +25,5 @@
             </tr>
         @endforeach
     </table>
+    <p>{{ $patients->links() }}</p>
 @endsection
