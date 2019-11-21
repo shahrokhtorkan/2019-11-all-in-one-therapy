@@ -34,7 +34,6 @@ class DocumentationsTableSeeder extends Seeder
                 ]);
                 $documentation = new Documentation();
                 $user = User::find(1);
-                $patient=$patient;
                 $documentation->user()->associate($user);
                 $documentation->patient()->associate($patient);
                 $documentation->text=$text;

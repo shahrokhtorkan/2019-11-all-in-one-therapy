@@ -75,7 +75,7 @@
                 <input type="text" name="country" value="{{$patient ? $patient->country: old('country')}}" placeholder="Land">
             </p>
             <p>
-                <button type="submit">{{ $patient ? 'Anlegen' : 'Speichern' }}</button>
+                <button type="submit" class="btn btn-primary">{{ $patient ? 'Anlegen' : 'Speichern' }}</button>
             </p>
         </div>
     </form>
@@ -83,7 +83,7 @@
         <form method="post" action="/patient/{{$patient->id}}/delete">
             @csrf
             <p>Diesen Patienten löschen:
-                <button type="submit">Löschen</button>
+                <button type="submit" class="btn btn-primary">Löschen</button>
             </p>
         </form>
 

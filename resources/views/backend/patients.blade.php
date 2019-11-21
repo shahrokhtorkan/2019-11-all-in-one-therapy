@@ -9,11 +9,11 @@
     <form method="get" action="{{ route('patients') }}">
         @csrf
         &#x1F50D;<input type="text" name="query" placeholder="Name oder SVNr" value="{{ request()->get('query') }}">
-        <button type="submit">Suchen</button>
+        <button type="submit" class="btn btn-primary">Suchen</button>
     </form>
     </p>
     @if (count($patients)>0)
-        <table class="table">
+        <table class="table table-bordered table-hover">
             <tr>
                 @if( $orderBy == 'lastname')
                     <th>
@@ -62,7 +62,7 @@
                     <td>
                         <form method="post" action="/patient/{{$patient->id}}/delete">
                             @csrf
-                            <button type="submit">Löschen</button>
+                            <button type="submit" class="btn btn-primary">Löschen</button>
                         </form>
                     </td>
                 </tr>
