@@ -12,7 +12,6 @@ class PatientController extends Controller
     {
 
         $filter = Request('name');
-        /*        dd($filter);*/
         if ($filter=="") {
             $patients = Patient::sortable()->paginate(10);
         }else{
@@ -24,11 +23,11 @@ class PatientController extends Controller
         return view('patients',compact('patients'));
     }
 
-    public function show($id)
+    public function show(Patient $patient,$id)
     {
-        /*dd($id);*/
-        $details = Patient::findOrFail($id);
-        return view('view',compact('details'));
+        $details = $patient->findOrFail($id);
+        $documentations = Patient::findOrFail($id)->documentations()->orderBy('id', 'desc')->paginate(getenv('AIOT_PAGINATE_ROWS'));
+        return view('view',compact('details','documentations'));
     }
 
     public function update($id)
@@ -43,8 +42,6 @@ class PatientController extends Controller
             'city' => 'required',
             'country' => 'required',
         ]);
-        /*dd($data);*/
-        /*dd($id);*/
 
         DB::table('patients')
             ->where('id', $id)
@@ -64,7 +61,6 @@ class PatientController extends Controller
 
     public function create()
     {
-
         return view('create');
     }
 
@@ -93,5 +89,11 @@ class PatientController extends Controller
                 'country' => $data['country']
             ]);
         return redirect('/patients');
+    }
+
+    public function delete($id) {
+        $patient = Patient::findOrFail($id);
+        $patient->delete();
+        return redirect("/patients");
     }
 }
