@@ -8,8 +8,8 @@
     <button class="btn btn-primary float-left" onclick="window.location='/patients/create'">Add New Patient</button>
     <form class="form-inline float-right" method="post" action="{{route('patients')}}">
         @csrf
-        <input type="text" class="form-control mb-3 mr-sm-2" name="name" placeholder="Patientenname eingeben">
-        <button type="submit" class="btn btn-primary mb-3" name="filter">Suchen</button>
+        <input type="text" class="form-control mb-3 mr-sm-2" name="name" placeholder="Enter patient name">
+        <button type="submit" class="btn btn-primary mb-3" name="filter">Search</button>
     </form>
     <table class="table table-bordered table-hover">
         <thead>
